@@ -1,0 +1,13 @@
+# Mac
+.DS_Store
+
+# IDE
+.idea
+
+# Composer
+/vendor/
+composer.lock
+
+# Test
+index.php
+test.php

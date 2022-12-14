@@ -1,0 +1,32 @@
+{
+  "name": "nice-yu/think-toolkit",
+  "description": "ThinkPHP6 set toolkit",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "nice-yu",
+      "email": "nice-yu@qq.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "php": ">=7.4",
+    "topthink/framework": "^6.0",
+    "doctrine/annotations": "^1.13",
+    "symfony/class-loader": "~3.2.0",
+    "jms/serializer": "^3.18"
+  },
+  "autoload":{
+    "psr-4":{
+      "NiceYu\\Toolkit\\": "./src/"
+    }
+  },
+  "extra": {
+    "think": {
+      "services": [],
+      "config": {
+      }
+    }
+  }
+}
