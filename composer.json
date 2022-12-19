@@ -24,8 +24,11 @@
   },
   "extra": {
     "think": {
-      "services": [],
+      "services": [
+        "NiceYu\\Service"
+      ],
       "config": {
+        "toolkit": "./src/Config.php"
       }
     }
   }
