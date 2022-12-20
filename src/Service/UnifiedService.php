@@ -5,7 +5,7 @@ namespace NiceYu\Service;
 
 use think\App;
 
-class Unified
+class UnifiedService
 {
     /**
      * 获取统一请求配置

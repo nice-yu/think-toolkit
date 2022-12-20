@@ -4,7 +4,7 @@ namespace NiceYu\Service;
 
 use think\App;
 
-class Version
+class VersionService
 {
     /**
      * 获取代码版本配置

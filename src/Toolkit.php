@@ -3,8 +3,9 @@ declare(strict_types=1);
 namespace NiceYu;
 
 use NiceYu\Annotation\Route;
-use NiceYu\Service\Unified;
-use NiceYu\Service\Version;
+use NiceYu\Security\SecurityService;
+use NiceYu\Service\UnifiedService;
+use NiceYu\Service\VersionService;
 use ReflectionClass;
 use ReflectionException;
 use ReflectionMethod;
@@ -46,10 +47,10 @@ trait Toolkit
                 $this->route = $this->app->route;
 
                 /** 代码版本 */
-                $this->version = Version::getVersionConfig($this->app);
+                $this->version = VersionService::getVersionConfig($this->app);
 
                 /** 统一调度 */
-                $this->unified = Unified::getUnifiedRequestConfig($this->app);
+                $this->unified = UnifiedService::getUnifiedRequestConfig($this->app);
 
                 /** 注解路由 */
                 $this->getAnnotationRoute();
@@ -160,6 +161,10 @@ trait Toolkit
         $rule->option($method);
 
         $this->routeState= true;
+
+        /** 执行安全 */
+        $security = new SecurityService();
+        $security->registerSecurity($this->app, $method);
     }
 
     /**
