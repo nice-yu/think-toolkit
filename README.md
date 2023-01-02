@@ -1,7 +1,12 @@
 # think-toolkit
 ===============
 
-> 运行环境要求PHP7.4
+## 运行环境要求
+> "php": ">=7.4", <br/>
+> "topthink/framework": "^6.0", <br/>
+> "doctrine/annotations": "^1.13", <br/>
+> "symfony/class-loader": "~3.2.0", <br/>
+> "jms/serializer": "^3.18" <br/>
 
 ## 主要特性
 * 采用`PHP7`强类型（严格模式）
