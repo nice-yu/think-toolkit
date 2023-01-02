@@ -3,8 +3,6 @@ declare(strict_types=1);
 namespace NiceYu\Security;
 
 use NiceYu\Contract\UserProviderInterface;
-use ReflectionClass;
-use ReflectionException;
 use think\App;
 use think\exception\HttpException;
 
@@ -14,7 +12,7 @@ class SecurityService
     /**
      * @param App $app
      * @param array $method
-     * @return null
+     * @return void
      */
     public function registerSecurity(App $app, array $method)
     {
@@ -31,29 +29,26 @@ class SecurityService
                     throw new HttpException(500,"尚未配置安全模块: $currentModule");
                 }
 
+                /** dependency injection */
+                $provider = explode('\\', $module[$currentModule]);
+                $providerName = array_pop($provider);
+                $app->bind($providerName, $module[$currentModule]);
+                $userProvider = $app->get($providerName);
 
-                try {
-                    /** 调动用户提供器 */
-                    $refClass = (new ReflectionClass($module[$currentModule]))->newInstance();
-                    if (!($refClass instanceof UserProviderInterface)){
-                        throw new HttpException(500,"请实现 UserProviderInterface 服务类");
-                    }
-                } catch (ReflectionException $e) {
-                    throw new HttpException(500,'错误的用户提供器: ' . $module[$currentModule]);
+                /** 调动用户提供器 */
+                if (!($userProvider instanceof UserProviderInterface)){
+                    throw new HttpException(500,"请实现 UserProviderInterface 服务类");
                 }
 
-
-                if ($refClass->supports($method['defaults'])){
+                if ($userProvider->supports($method['defaults'])){
                     /** 获取到凭证 */
-                    $credentials = $refClass->getCredentials();
+                    $credentials = $userProvider->getCredentials();
 
                     /** 获取到用户信息 */
-                    $app->request->userBadgeInfo  = $refClass->getUser($credentials);
+                    $app->request->userBadgeInfo  = $userProvider->getUser($credentials);
                     $app->request->userIdentifier = $credentials;
                 }
-                return null;
             }
-
         }
     }
 }
