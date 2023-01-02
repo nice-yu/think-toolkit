@@ -10,8 +10,7 @@ return array(
         'controller'=>  [
             think\facade\App::getAppPath(), // 单应用
 //            think\facade\App::getAppPath() . 'admin/',  //多应用
-        ],
-        'cacheName' =>  'classMD5', // 缓存名称
+        ]
     ],
 
     /**
@@ -31,7 +30,7 @@ return array(
     'unified'   =>  [
         'enable'    =>  true,       // 统一请求 (true | false)
         'param'     =>  false,      // 请求路由参数位置 (true = header | false = body)
-        'name'      =>  'method',   // 请求路由 (/version | /hello)
+        'name'      =>  'method',   // 请求路由 (route | method)
 
         // (/api/welcome = api.welcome) (/admin/test = admin.test)
         'symbol'    =>  '.',        // 分割符号 (. | _ | - | @)
