@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace NiceYu\Contract;
+namespace NiceYu\Toolkit\Contract;
 
 interface CacheDtoInterface
 {

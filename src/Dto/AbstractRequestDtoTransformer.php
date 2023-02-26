@@ -1,11 +1,11 @@
 <?php
 declare(strict_types=1);
-namespace NiceYu\Dto;
+namespace NiceYu\Toolkit\Dto;
 
 use Doctrine\Common\Annotations\AnnotationReader;
 use JMS\Serializer\SerializerBuilder;
-use NiceYu\Annotation\Validator;
-use NiceYu\Annotation\ValidatorGroup;
+use NiceYu\Toolkit\Annotation\Validator;
+use NiceYu\Toolkit\Annotation\ValidatorGroup;
 use ReflectionClass;
 use ReflectionException;
 use ReflectionMethod;
@@ -61,7 +61,7 @@ abstract class AbstractRequestDtoTransformer extends AbstractDtoTransformer
                  */
                 if ($item->getRule()){
                     $rules = array();
-                    foreach ($item->getRule() as $k=>$v){
+                    foreach ($item->getRule() as $v){
                         if (in_array($v,$customizeKeys)){
                             $methods[] = $v;
                         } else {

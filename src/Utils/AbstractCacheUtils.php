@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
-namespace NiceYu\Utils;
+namespace NiceYu\Toolkit\Utils;
 
 use JMS\Serializer\Serializer;
 use JMS\Serializer\SerializerBuilder;
-use NiceYu\Contract\CacheDtoInterface;
+use NiceYu\Toolkit\Contract\CacheDtoInterface;
 use think\facade\Cache;
 
 class AbstractCacheUtils
@@ -43,7 +43,7 @@ class AbstractCacheUtils
      * @param int $ttl
      * @return bool
      */
-    public function setObject(CacheDtoInterface $cache, $ttl = 0):bool
+    public function setObject(CacheDtoInterface $cache, int $ttl = 0):bool
     {
         $data = $this->serializer->serialize($cache, 'json');
         return Cache::set($cache->getCacheKey(), $data, $ttl);

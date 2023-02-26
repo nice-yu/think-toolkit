@@ -1,6 +1,8 @@
 {
   "name": "nice-yu/think-toolkit",
-  "description": "ThinkPHP6 set toolkit",
+  "description": "thinkphp6 toolkit",
+  "keywords": ["thinkphp6","toolkit","annotation encapsulation"],
+  "homepage": "https://github.com/nice-yu/think-toolkit",
   "type": "library",
   "license": "MIT",
   "authors": [
@@ -9,7 +11,6 @@
       "email": "nice-yu@qq.com"
     }
   ],
-  "minimum-stability": "dev",
   "require": {
     "php": ">=7.4",
     "topthink/framework": "^6.0",
@@ -19,17 +20,10 @@
   },
   "autoload":{
     "psr-4":{
-      "NiceYu\\": "./src/"
+      "NiceYu\\Toolkit\\": "./src/"
     }
   },
-  "extra": {
-    "think": {
-      "services": [
-        "NiceYu\\Service"
-      ],
-      "config": {
-        "toolkit": "./src/Config.php"
-      }
-    }
+  "require-dev": {
+    "symfony/var-dumper": "5.4"
   }
 }

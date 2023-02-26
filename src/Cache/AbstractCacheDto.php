@@ -1,9 +1,10 @@
 <?php
 declare(strict_types=1);
-namespace NiceYu\Cache;
+namespace NiceYu\Toolkit\Cache;
 
 use JMS\Serializer\Annotation as Serializer;
-use NiceYu\Contract\CacheDtoInterface;
+
+use NiceYu\Toolkit\Contract\CacheDtoInterface;
 
 abstract class AbstractCacheDto implements CacheDtoInterface
 {

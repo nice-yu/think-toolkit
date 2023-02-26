@@ -1,6 +1,6 @@
 <?php
 declare(strict_types=1);
-namespace NiceYu\Dto;
+namespace NiceYu\Toolkit\Dto;
 
 use stdClass;
 use think\Response;

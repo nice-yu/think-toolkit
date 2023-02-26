@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
-namespace NiceYu\Dto;
+namespace NiceYu\Toolkit\Dto;
 
 use Closure;
 use JMS\Serializer\SerializerBuilder;
-use NiceYu\Contract\DtoSerializeInterface;
+use NiceYu\Toolkit\Contract\DtoSerializeInterface;
 
 abstract class AbstractDtoTransformer implements DtoSerializeInterface
 {
