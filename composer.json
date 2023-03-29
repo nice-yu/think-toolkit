@@ -14,9 +14,9 @@
   "require": {
     "php": ">=7.4",
     "topthink/framework": "^6.0",
-    "doctrine/annotations": "^1.13",
+    "doctrine/annotations": ">=1.13",
     "symfony/class-loader": "~3.2.0",
-    "jms/serializer": "^3.18"
+    "jms/serializer": ">=3.18"
   },
   "autoload":{
     "psr-4":{
